@@ -1,0 +1,13 @@
+// @import 'scss/_reset';
+@import '../../scss/_mixins';
+
+header{
+  @include theme-aware('background', 'color-background');
+  // background-color: red;
+  @include padding(10px);
+
+  border: 1px solid;
+  @include red-border;
+  
+}
+
