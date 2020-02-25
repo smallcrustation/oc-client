@@ -2,7 +2,7 @@
 @import '../../scss/_mixins';
 
 header{
-  @include theme-aware('background', 'color-background');
+  // @include set-themes('background', 'color-background');
   // background-color: red;
   @include padding(10px);
 

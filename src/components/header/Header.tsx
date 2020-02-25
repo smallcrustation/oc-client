@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   // let nightMode = false
 
   return (
-  <header className='theme-day' >
+  <header className=''>
     Head
   </header>
   )
