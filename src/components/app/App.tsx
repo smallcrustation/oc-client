@@ -6,9 +6,9 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App theme-day">
+    <div className="App">
       <Header />
-      <div className="theme-day">Hello</div>
+      <div className="">Hello</div>
     </div>
   );
 }

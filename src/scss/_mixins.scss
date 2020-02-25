@@ -1,37 +1,14 @@
-// @import '_themes.scss';
+@import '_themes.scss';
 
-@mixin setBg($themes){
-  
-}
-
-@mixin themify($themes: $themes) {
+@mixin themed() {
   @each $theme, $map in $themes {
-    // @error "the value of $theme is `.theme-#{$theme}`";
-
-    .theme-#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), '#{$key}');
-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
-      }
-
+    $theme-map: map-get($themes, $theme) !global;
+    .theme--#{$theme} & {
       @content;
-      $theme-map: null !global;
     }
-
   }
 }
+
 @function themed($key) {
-  // @error "the value of $theme-map is `#{$theme-map}`";
   @return map-get($theme-map, $key);
 }
-
-// @mixin themed() {
-//   @each $theme, $map in $themes {
-//     $theme-map: map-get($themes, $theme) !global;
-//     .theme--#{$theme} & {
-//       @content;
-//     }
-//   }
-// }
-

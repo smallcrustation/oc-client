@@ -2,12 +2,5 @@
 @import '../../scss/_mixins';
 
 header{
-  // @include set-themes('background', 'color-background');
-  // background-color: red;
-  @include padding(10px);
-
-  border: 1px solid;
-  @include red-border;
-  
 }
 

@@ -1,23 +1,5 @@
-@import '../../scss/_mixins';
-@import '../../scss/_themes';
+@import '../../scss/_mixins'; 
 
 .App {
-
-  // .theme-day{ background-color: red;}
-
-  // @error "the value of $themes is `#{$themes}`"; // themes looks like they are here
-  @include themify($themes) {
-    // color: themed('textColor');  
-    background-color: red;
-    color: red;
-    // background-color: themed('backgroundColor');  
-    color: themed('textColor');  
-
-  }
-  // @include themed(){
-  //   color: themed('textColor');
-  // }
-
-  text-align: center;
 }
 
