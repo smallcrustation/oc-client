@@ -1,15 +1,17 @@
 import React from 'react'
+import Nav from '../Nav/Nav'
 import './Header.scss'
 
-const Header: React.FC = () => {
-  
-  // let nightMode = false
+type Props = { toggleTheme: Function }
 
-  return (
-  <header className=''>
-    Head
-  </header>
-  )
+const Header = ({ toggleTheme }: Props) => {
+
+  return(
+   <header className="Header">
+     <h1>Header</h1>
+     <button onClick={() => toggleTheme('night')}>Toggle Theme</button>
+     <Nav />
+   </header>)
 }
 
 export default Header
