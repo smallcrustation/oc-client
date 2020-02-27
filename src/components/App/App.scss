@@ -1,0 +1,17 @@
+@import '../../scss/_mixins'; 
+
+
+.App {
+  // box-sizing: border-box;
+  // border: 1px solid black;
+}
+
+.App__main{
+  // border: 1px orange solid;
+  // color: red;
+  @include themed(){
+    background-color: themed('backgroundColor');
+    color: themed('textColor');
+  }
+}
+

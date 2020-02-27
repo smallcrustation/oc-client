@@ -1,0 +1,26 @@
+// @import 'scss/_reset';
+@import '../../scss/_mixins';
+
+.Header{
+  display: flex;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+  padding: 10px 5px;
+
+  .right{
+    display: flex;
+    align-items: center;
+  }
+
+  .logo{
+    font-size: 1.3em;
+
+    :first-child{
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+    
+  }
+
+}
+

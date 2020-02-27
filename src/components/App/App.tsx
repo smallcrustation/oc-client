@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import {Switch, Route} from 'react-router-dom'
 import Header from '../Header/Header'
 
 import './App.scss'
+import LandingPage from '../../pages/LandingPage/LandingPage'
 
 function App() {
   const [theme, setTheme] = useState<string>('day')
@@ -17,10 +19,13 @@ function App() {
 
   return (
     <div className={`App theme-${theme}`}>
-      <div className="app-container">
-        <Header toggleTheme={toggleTheme} />
-        <div className="card">Hello</div>
-      </div>
+      <main className="App__main">
+        <Header toggleTheme={toggleTheme} theme={theme}/>
+  
+        <Switch>
+          <Route exact path={'/'} component={LandingPage} />
+        </Switch>
+      </main>
     </div>
   )
 }
