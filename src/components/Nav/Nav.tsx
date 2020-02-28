@@ -1,12 +1,17 @@
 import React, {useState} from 'react'
 import './Nav.scss'
 
-const Nav = () => {
+type Props = {
+  toggleDisplayMenu: Function
+}
+
+const Nav = ({toggleDisplayMenu}: Props) => {
 
   const [expanded, setExpanded] = useState(false)
 
   const toggleExpanded = () => {
     setExpanded(!expanded)
+    toggleDisplayMenu()
   }
 
   return (
@@ -20,16 +25,17 @@ const Nav = () => {
           className={`menu-icon-bottom ${expanded ? 'menu-icon-bottom-expanded' : ''}`}
         ></div>
       </div>
-      <ul
+      <br/>
+      {/* <ul
         className={`NavMobile-ul-hidden ${
           expanded ? 'NavMobile-ul-visible' : ''
         }`}
       >
       
-        {/* <li onClick={() => scrollTo('About')}>About</li> */}
-        {/* <li onClick={() => scrollTo('ProjectsList')}>Projects</li> */}
-        {/* <li onClick={() => scrollTo('Contact')}>Contact</li> */}
-      </ul>
+        <li onClick={() => scrollTo('About')}>About</li>
+        <li onClick={() => scrollTo('ProjectsList')}>Projects</li>
+        <li onClick={() => scrollTo('Contact')}>Contact</li>
+      </ul> */}
     </nav>
   )
 }
