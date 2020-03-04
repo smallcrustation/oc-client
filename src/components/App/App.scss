@@ -2,7 +2,7 @@
 
 
 .App {
-  // box-sizing: border-box;
+  box-sizing: border-box;
   // border: 1px solid black;
 }
 
@@ -20,9 +20,14 @@
 }
 
 .App__main *{
+  box-sizing: border-box;
   border-color: inherit;
 }
 
-.page{
-  margin: 10px;
+.img-container{
+  // border: 1px solid black;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
+
