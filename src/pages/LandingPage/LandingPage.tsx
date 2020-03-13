@@ -3,14 +3,14 @@ import Img from 'react-image'
 import './LandingPage.scss'
 import ImgLoader from '../../components/ImgLoader/ImgLoader'
 
-import halsey104 from '../../assets/images/residential/104 Halsey/Pics/18.jpg'
-import SPointe from '../../assets/images/residential/100 S Point Townhomes 2-3/pics/1.jpg'
-import halsey106 from '../../assets/images/residential/106 Halsey/pics/1.jpg'
-import castilla from '../../assets/images/residential/2301 Castilla/pics/1.jpg'
-import highflyer from '../../assets/images/residential/5568 HighFlyer/pics/1.jpg'
-import boldLad from '../../assets/images/residential/7703 boldLad/pics/1.jpg'
-import ND8124 from '../../assets/images/residential/8124 nd/pics/1.jpg'
-import ND8362 from '../../assets/images/residential/8362 nd/pics/1.jpg'
+// import halsey104 from '../../assets/images/residential/104 Halsey/Pics/18.jpg'
+// import SPointe from '../../assets/images/residential/100 S Point Townhomes 2-3/pics/1.jpg'
+// import halsey106 from '../../assets/images/residential/106 Halsey/pics/1.jpg'
+// import castilla from '../../assets/images/residential/2301 Castilla/pics/1.jpg'
+// import highflyer from '../../assets/images/residential/5568 HighFlyer/pics/1.jpg'
+// import boldLad from '../../assets/images/residential/7703 boldLad/pics/1.jpg'
+// import ND8124 from '../../assets/images/residential/8124 nd/pics/1.jpg'
+// import ND8362 from '../../assets/images/residential/8362 nd/pics/1.jpg'
 
 interface images {
   [key: string]: string

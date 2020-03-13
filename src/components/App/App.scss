@@ -28,10 +28,15 @@ html, body, #root, .App__main{
 }
 
 .img-container{
-
   // border: 1px solid black;
+
   width: 100%;
-  height: 45%;
+  height: 40vh;
+  max-height: 200px;
+
+  // display: flex;
+  // align-items: center;
+
   overflow: hidden;
   line-height: 0;
 }
