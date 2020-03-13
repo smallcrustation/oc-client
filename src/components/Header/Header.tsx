@@ -34,11 +34,13 @@ const Header = ({ toggleTheme, theme }: Props) => {
       <div className="line-break"></div>
 
       <div className={`menu-drop-down ${displayMenu?'':'hidden'}`}>
+        {/* <div className=""> */}
         <div className="menu-item">About</div>
         <div className="menu-item">•</div>
         <div className="menu-item">Portfolio</div>
         <div className="menu-item">•</div>
         <div className="menu-item">Contact</div>
+        {/* </div> */}
         {/* <div>•</div> */}
         <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
       </div>
