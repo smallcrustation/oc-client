@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Nav from '../Nav/Nav'
 import './Header.scss'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
+import { Link } from 'react-router-dom'
 
 type Props = {
   toggleTheme: Function
@@ -19,9 +20,11 @@ const Header = ({ toggleTheme, theme }: Props) => {
     <header className="Header">
       <div className="header-top">
         <div className="logo">
+        <Link to='/'>
           <span>Oberholtzer</span>
        
           <span>Construction</span>
+          </Link>
         </div>
 
         <div className="right">
@@ -35,11 +38,11 @@ const Header = ({ toggleTheme, theme }: Props) => {
 
       <div className={`menu-drop-down ${displayMenu?'':'hidden'}`}>
         {/* <div className=""> */}
-        <div className="menu-item">About</div>
+        <div className="menu-item txt"><Link to="/about">About</Link></div>
         <div className="menu-item">•</div>
-        <div className="menu-item">Portfolio</div>
+        <div className="menu-item txt"><Link to="/portfolio">Portfolio</Link></div>
         <div className="menu-item">•</div>
-        <div className="menu-item">Contact</div>
+        <div className="menu-item txt"><Link to="/contact">Contact</Link></div>
         {/* </div> */}
         {/* <div>•</div> */}
         <ThemeToggle toggleTheme={toggleTheme} theme={theme} />

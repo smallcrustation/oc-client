@@ -21,7 +21,7 @@
       font-size: 1.3em;
       text-transform: uppercase;
       // letter-spacing: 1px;
-      :first-child {
+      span:nth-of-type(1) {
         font-size: 1.3em;
         font-weight: bold;
       }
@@ -51,12 +51,13 @@
     margin-top: -2px;
     border-bottom: 2px solid;
     border-color: inherit;
+    font-size: 1.4em;
 
-    .menu-item {
-      font-size: 1.4em;
-      overflow: hidden;
-      line-height: 52px;
-    }
+    // .menu-item {
+    //   font-size: 1.4em;
+    //   overflow: hidden;
+    //   line-height: 52px;
+    // }
 
   }
   .hidden{

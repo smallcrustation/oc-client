@@ -4,6 +4,8 @@ import Header from '../Header/Header'
 
 import './App.scss'
 import LandingPage from '../../pages/LandingPage/LandingPage'
+import Footer from '../Footer/Footer'
+import AboutPage from '../../pages/AboutPage/AboutPage'
 
 function App() {
   const [theme, setTheme] = useState<string>('day')
@@ -24,7 +26,10 @@ function App() {
   
         <Switch>
           <Route exact path={'/'} component={LandingPage} />
+          <Route exact path={'/about'} component={AboutPage} />
         </Switch>
+
+        <Footer/>
       </main>
     </div>
   )
