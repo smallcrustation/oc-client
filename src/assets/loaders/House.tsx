@@ -2,13 +2,12 @@ import React from 'react'
 
 const House = () => {
   return (
-    <div className="House">
+    <div className="House" style={{height: '200px', paddingTop: '5%'}}>
       <svg
         viewBox="0 0 80 80"
         xmlns="http://www.w3.org/2000/svg"
         width="150"
         height="150"
-        // style={{width:100%;height:100%;}}
       >
         <g>
           <path
@@ -18,7 +17,6 @@ const House = () => {
             stroke="#333"
             fill="white"
             d="M72 43.612l-11.15-8.865V20.834a1.82 1.82 0 00-1.82-1.82h-5.588a1.82 1.82 0 00-1.82 1.82v6.576L40 18.171 8 43.612l4.086 5.14 4.662-3.707v13.708a3.077 3.077 0 003.077 3.077h40.351a3.077 3.077 0 003.077-3.077V45.045l4.661 3.706L72 43.612z"
-           
           />
           <path
             className="House-gear"

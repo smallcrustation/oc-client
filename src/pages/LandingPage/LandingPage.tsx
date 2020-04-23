@@ -1,93 +1,33 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState, useEffect } from 'react'
-import Img from 'react-image'
+// import Img from 'react-image'
 import './LandingPage.scss'
-import { Link } from 'react-router-dom'
-import ImgLoader from '../../components/ImgLoader/ImgLoader'
+// import { Link } from 'react-router-dom'
+// import ImgLoader from '../../components/ImgLoader/ImgLoader'
+// import imageApiService from '../../services/image-api-service'
 
-import halsey104 from '../../assets/images/residential/halsey104/Pics/18.jpg'
-import southePointe from '../../assets/images/residential/southePointe/pics/1.jpg'
-import halsey106 from '../../assets/images/residential/halsey106/pics/1.jpg'
-import castilla from '../../assets/images/residential/castilla/pics/1.jpg'
-// import highflyer from '../../assets/images/residential/5568 HighFlyer/pics/1.jpg'
-// import boldLad from '../../assets/images/residential/7703 boldLad/pics/1.jpg'
-// import ND8124 from '../../assets/images/residential/8124 nd/pics/1.jpg'
-// import ND8362 from '../../assets/images/residential/8362 nd/pics/1.jpg'
+import ImageList from '../../components/ImageList/ImageList'
 
-interface images {
-  [key: string]: string
-}
+// interface Project {
+//   name: string
+//   url: string | null
+// }
 
 const LandingPage = () => {
-  // const [images, setImages] = useState<images>()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [projectNames, setProjectNames] = useState(['boldLad', 'halsey104', 'castilla', 'halsey106', 'highFlyer', 'nativeDancer8124', 'nativeDancer8362', 'southePointe'])
 
-  // // get images with WebPack importAll(require.context(
-  // function importAll(r: __WebpackModuleApi.RequireContext) {
-  //   let images: images = {}
-  //   r.keys().forEach((item, index) => {
-  //     // console.log(item)
-  //     images[item.replace('./', '')] = r(item)
-  //   })
-  //   return images
-  // }
-
-  // useEffect(() => {
-  // // look in '../file', false for deep search, match regex
-  //   setImages(
-  //     importAll(
-  //       require.context(
-  //         '../../assets/images/residential/104 Halsey/Pics',
-  //         false,
-  //         /\.(png|jpe?g|svg)$/
-  //       )
-  //     )
-  //   )
-  // }, [])
-
-  // console.log(images?images:'not loaded')
-  return (
-    <div className="LandingPage">
-      <section>
-        {/* <div className="img-container">
-          <ImgLoader/>
-        </div> */}
-        <div className="img-container">
-          {/* <img src={images?images['18.jpg']:''} alt="halsey106" /> */}
-          <Link to={'/project/halsey104'}>
-            <Img
-              src={halsey104 ? halsey104 : ''}
-              loader={<ImgLoader />}
-              // unloader={undefined} fallback if img couldn't be loaded
-            />
-          </Link>
-        </div>
-        <div className="img-container">
-          {/* <img src={images?images['18.jpg']:''} alt="halsey106" /> */}
-          <Img
-            src={southePointe ? southePointe : ''}
-            loader={<ImgLoader />}
-            // unloader={undefined} fallback if img couldn't be loaded
-          />
-        </div>
-        <div className="img-container">
-          {/* <img src={images?images['18.jpg']:''} alt="halsey106" /> */}
-          <Img
-            src={halsey106 ? halsey106 : ''}
-            loader={<ImgLoader />}
-            // unloader={undefined} fallback if img couldn't be loaded
-          />
-        </div>
-        <div className="img-container">
-          {/* <img src={images?images['18.jpg']:''} alt="halsey106" /> */}
-          <Img
-            src={castilla ? castilla : ''}
-            loader={<ImgLoader />}
-            // unloader={undefined} fallback if img couldn't be loaded
-          />
-        </div>
-      </section>
-    </div>
-  )
+  if (projectNames) {
+    return (
+      <div className="LandingPage">
+        <section>
+          <ImageList projectNames={projectNames}/>
+        </section>
+      </div>
+    )
+  } else {
+    return <p>Loading...</p>
+  }
 }
 
 export default LandingPage
