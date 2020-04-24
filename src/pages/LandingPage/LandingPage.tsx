@@ -15,7 +15,9 @@ import ImageList from '../../components/ImageList/ImageList'
 
 const LandingPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [projectNames, setProjectNames] = useState(['boldLad', 'halsey104', 'castilla', 'halsey106', 'highFlyer', 'nativeDancer8124', 'nativeDancer8362', 'southePointe'])
+  // const [projectNames, setProjectNames] = useState(['boldLad', 'halsey104', 'castilla', 'halsey106', 'highFlyer', 'nativeDancer8124', 'nativeDancer8362', 'southePointe'])
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [projectNames, setProjectNames] = useState(['southePointe'])
 
   if (projectNames) {
     return (

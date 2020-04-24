@@ -5,7 +5,7 @@ import imageApiService from '../../services/image-api-service'
 
 interface Project {
   name: string
-  url: string | undefined
+  url: string[] | undefined
 }
 
 interface ImageListItemProps {
@@ -15,11 +15,11 @@ interface ImageListItemProps {
 
 const ImageListItem: React.FC<ImageListItemProps> = ({ projectName }) => {
   const [loading, setloading] = useState(true)
-  const [project, setProject] = useState<Project>({ name: '', url: '' })
+  const [project, setProject] = useState<Project>({ name: '', url: [''] })
 
   useEffect(() => {
     // async function in useEffect
-    async function getUrlsForLandingPageProjects() {
+    async function getUrlsForProjectByName(projectName: string) {
       // each project in projectNames send api request and add url for display image[0]
       // setloading(true)
       try {
@@ -27,46 +27,30 @@ const ImageListItem: React.FC<ImageListItemProps> = ({ projectName }) => {
         // console.log( await res.json())
         projectRes = await projectRes.json()
         // console.log(projectRes.imgUrls[0])
-        setProject({ name: projectName, url: projectRes.imgUrls[0] })
+        setProject({ name: projectName, url: projectRes.imgUrls })
         setloading(false)
       } catch (e) {
         console.error(e)
       }
     }
-    getUrlsForLandingPageProjects()
+    getUrlsForProjectByName(projectName)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // const displayProjectItem = () => {
-  //   if (project.url) {
-  //     setloading(false)
-  //     return (
-  //       <li>
-  //         <Link to={`/project/${project.name}`}>
-  //           <img src={project.url} alt="A Beautiful House" />
-  //         </Link>
-  //       </li>
-  //     )
-  //   } else {
-  //     return (
-  //       <li>
-  //         <ImgLoader />
-  //       </li>
-  //     )
-  //   }
-  // }
-
   return (
     <div className="img-container">
-      {loading? (
+      {loading ? (
         <ImgLoader />
       ) : (
+        project.url?
         <li>
-          <Link to={`/project/${project.name}`}>
-            <img src={project.url} alt="A Beautiful House" />
+          <Link
+            to={{ pathname: `/project/${project.name}`, state: { project } }}
+          >
+            <img src={project.url[0]} alt="A Beautiful House" />
           </Link>
-        </li>
+        </li>:<div>ERROR</div>
       )}
     </div>
   )
