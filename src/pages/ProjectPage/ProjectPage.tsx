@@ -6,10 +6,17 @@ import { useParams } from 'react-router'
 // import ImgLoader from '../../components/ImgLoader/ImgLoader'
 import { useLocation } from 'react-router-dom'
 import imageApiService from '../../services/image-api-service'
+import ImageList from '../../components/ImageList/ImageList'
+import ImgLoader from '../../components/ImgLoader/ImgLoader'
+import './ProjectPage.scss'
 
 interface Project {
   name: string
   url: string[] | undefined
+}
+
+interface ParamTypes {
+  address: string
 }
 
 const ProjectPage = () => {
@@ -17,7 +24,7 @@ const ProjectPage = () => {
   const [loading, setLoading] = useState(true)
 
   const location = useLocation()
-  const address = useParams<string>()
+  const projectNamesParam = useParams<ParamTypes>()
 
   // async function in useEffect
   async function getUrlsForProjectByName(projectName: string) {
@@ -27,7 +34,7 @@ const ProjectPage = () => {
       let projectRes = await imageApiService.getProjectImageUrls(projectName)
       // console.log( await res.json())
       projectRes = await projectRes.json()
-      // console.log(projectRes.imgUrls[0])
+
       setProject({ name: projectName, url: projectRes.imgUrls })
       setLoading(false)
     } catch (e) {
@@ -38,30 +45,34 @@ const ProjectPage = () => {
   useEffect(() => {
     // if coming from LandingPage just used the passed project prop ELSE you have to request from api
     if (location.state) {
+
       // console.log('location.state')
 
       const { project } = location.state as any
 
       // console.log(project)
-
       setProject(project)
       setLoading(false)
-      // if(projectProp.projectProp)
-      // console.log(projectProp.projectProp)
-      // setProject({projectProp.projectProp})
-      // console.log(project)
-    } else {
-      getUrlsForProjectByName(address)
+    } else if (projectNamesParam.address) {
+      getUrlsForProjectByName(projectNamesParam.address)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  console.log()
-  return (
-    <div className="ProjectPage">
-      {console.log(project)}
-      {loading ? 'loading...' : `${project?.name} GOOD TO GO`}
-    </div>
-  )
+  // console.log(project)
+
+  if (project) {
+    return (
+      <div className="ProjectPage">
+        <ImageList project={project} />
+      </div>
+    )
+  } else {
+    return (
+      <div className="ProjectPage">
+        <ImgLoader />
+      </div>
+    )
+  }
 }
 
 export default ProjectPage

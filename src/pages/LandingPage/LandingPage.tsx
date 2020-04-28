@@ -19,16 +19,18 @@ const LandingPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [projectNames, setProjectNames] = useState(['southePointe'])
 
+  // console.log('RENDER LandingPage')
+
   if (projectNames) {
     return (
       <div className="LandingPage">
         <section>
-          <ImageList projectNames={projectNames}/>
+          <ImageList projectNamesList={projectNames}/>
         </section>
       </div>
     )
   } else {
-    return <p>Loading...</p>
+    return <p>Error...</p>
   }
 }
 

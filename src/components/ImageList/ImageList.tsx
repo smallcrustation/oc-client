@@ -1,19 +1,57 @@
 import React from 'react'
-import ImageListItem from '../ImageListItem/ImageListItem'
+import ImageListItemLanding from '../ImageListItemLanding/ImageListItemLanding'
+import ImageListItemProject from '../ImageListItemProject/ImageListItemProject'
 
-interface ImageListProps {
-  projectNames: string[]
+interface Project {
+  name: string
+  url: string[] | undefined
 }
 
-const ImageList: React.FC<ImageListProps> = ({ projectNames }) => {
+interface ImageListProps {
+  projectNamesList?: string[]
+  project?: Project
+}
+
+const ImageList: React.FC<ImageListProps> = ({ projectNamesList, project }) => {
   // MAP MAP MAP
+
+  const renderImageList = () => {
+
+    // IF USING A LIST OF STRINGS TO GET PROJECTS (for all projects get one img)
+    if (projectNamesList) {
+      return (
+        <ul>
+          {projectNamesList.map((project, index) => (
+            <ImageListItemLanding projectName={project} key={index} />
+          ))}
+        </ul>
+      )
+    }
+    // IF USING A PROJECT "OBJECT" (for one project get all its imgs)
+    if (project) {
+      return (
+        <ul>
+          {/* {console.log(project.url)} */}
+          {project.url
+            ? project.url.map((imageUrl, index) => (
+                <ImageListItemProject imageUrl={imageUrl} key={index} />
+              ))
+            : 'Error...'}
+        </ul>
+      )
+    }
+  }
+
+  // console.log('RENDER ImageList')
+
   return (
     <div className="ImageList">
-      <ul>
-        {projectNames.map((project, index) => (
+      {/* <ul>
+        {projectNamesList.map((project, index) => (
           <ImageListItem projectName={project} key={index} />
         ))}
-      </ul>
+      </ul> */}
+      {renderImageList()}
     </div>
   )
 }
