@@ -8,17 +8,6 @@ interface Project {
   url: string[] | undefined
 }
 
-// interface ImageListItemPropWithProjectName {
-//   projectName: string
-// }
-
-// interface ImageListItemPropWithProjectObject {
-//   project: Project
-
-// }
-
-// type ImageListItemProps = ImageListItemPropWithProjectName | ImageListItemPropWithProjectObject
-
 interface ImageListItemLandingProps {
   projectName: string
 }
@@ -29,6 +18,21 @@ const ImageListItemLanding: React.FC<ImageListItemLandingProps> = ({
   const [loading, setloading] = useState(true)
   const [project, setProject] = useState<Project>({ name: '', url: [''] })
 
+  const orderUrls = (projectResUrls: Array<string>) => {
+    const sortedResults = projectResUrls.sort((urlA, urlB) => {
+      // console.log(urlA.split('/').slice(-1)[0].split('_', 1)[0], urlB)
+
+      const a: number = parseInt(urlA.split('/').slice(-1)[0].split('_', 1)[0])
+      const b: number = parseInt(urlB.split('/').slice(-1)[0].split('_', 1)[0])
+      // console.log(a, ' - ', b)
+      return a - b
+    });
+
+    // console.log(sortedResults)
+
+    return sortedResults
+  }
+
   async function getUrlsForProjectByName(projectName: string) {
     // each project in projectNames send api request and add url for display image[0]
     // setloading(true)
@@ -36,6 +40,13 @@ const ImageListItemLanding: React.FC<ImageListItemLandingProps> = ({
       let projectRes = await imageApiService.getProjectImageUrls(projectName)
       // console.log( await res.json())
       projectRes = await projectRes.json()
+
+      // order urls by number
+      projectRes.imgUrls = orderUrls(projectRes.imgUrls)
+
+      // console.log(projectRes.imgUrls)
+
+
       // console.log(projectRes.imgUrls[0])
       setProject({ name: projectName, url: projectRes.imgUrls })
       setloading(false)
@@ -46,9 +57,9 @@ const ImageListItemLanding: React.FC<ImageListItemLandingProps> = ({
 
   useEffect(
     () => {
-      // async function in useEffect
-      getUrlsForProjectByName(projectName)
-      // getUrlsForProjectByName(projectName)
+        // async function in useEffect
+        getUrlsForProjectByName(projectName)
+        // getUrlsForProjectByName(projectName)
     },
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

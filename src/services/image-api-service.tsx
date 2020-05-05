@@ -9,6 +9,9 @@ const imageApiService = {
       const imageUrls = await fetch(
         `${config.REACT_APP_API_ENDPOINT}/images/${project}`
       )
+
+      // console.log(imageUrls.json())
+
       return imageUrls
     } catch (e) {
       return e

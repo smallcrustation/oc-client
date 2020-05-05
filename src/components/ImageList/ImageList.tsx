@@ -12,8 +12,8 @@ interface ImageListProps {
   project?: Project
 }
 
+// Props determine what renders
 const ImageList: React.FC<ImageListProps> = ({ projectNamesList, project }) => {
-  // MAP MAP MAP
 
   const renderImageList = () => {
 
@@ -29,6 +29,9 @@ const ImageList: React.FC<ImageListProps> = ({ projectNamesList, project }) => {
     }
     // IF USING A PROJECT "OBJECT" (for one project get all its imgs)
     if (project) {
+
+
+
       return (
         <ul>
           {/* {console.log(project.url)} */}

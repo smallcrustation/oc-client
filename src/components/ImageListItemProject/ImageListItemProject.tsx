@@ -26,14 +26,14 @@ interface ImageListItemProjectProps {
 const ImageListItemProject: React.FC<ImageListItemProjectProps> = ({
   imageUrl,
 }) => {
-  const [loading, setloading] = useState(true)
+  // const [loading, setloading] = useState(true)
 
-  useEffect(
-    () => {},
+  // useEffect(
+  //   () => {},
 
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  )
+  //   //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   []
+  // )
 
   return (
     <div className="img-container">

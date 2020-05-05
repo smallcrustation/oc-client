@@ -26,6 +26,21 @@ const ProjectPage = () => {
   const location = useLocation()
   const projectNamesParam = useParams<ParamTypes>()
 
+  const orderUrls = (projectResUrls: Array<string>) => {
+    const sortedResults = projectResUrls.sort((urlA, urlB) => {
+      // console.log(urlA.split('/').slice(-1)[0].split('_', 1)[0], urlB)
+
+      const a: number = parseInt(urlA.split('/').slice(-1)[0].split('_', 1)[0])
+      const b: number = parseInt(urlB.split('/').slice(-1)[0].split('_', 1)[0])
+      // console.log(a, ' - ', b)
+      return a - b
+    });
+
+    // console.log(sortedResults)
+
+    return sortedResults
+  }
+
   // async function in useEffect
   async function getUrlsForProjectByName(projectName: string) {
     // each project in projectNames send api request and add url for display image[0]
@@ -35,7 +50,9 @@ const ProjectPage = () => {
       // console.log( await res.json())
       projectRes = await projectRes.json()
 
-      setProject({ name: projectName, url: projectRes.imgUrls })
+      const orderedUrls = orderUrls(projectRes.imgUrls)
+
+      setProject({ name: projectName, url: orderedUrls })
       setLoading(false)
     } catch (e) {
       console.error(e)
@@ -60,7 +77,7 @@ const ProjectPage = () => {
   }, [])
   // console.log(project)
 
-  if (project) {
+  if (project && !loading) {
     return (
       <div className="ProjectPage">
         <ImageList project={project} />
