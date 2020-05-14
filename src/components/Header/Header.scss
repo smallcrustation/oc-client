@@ -1,17 +1,24 @@
-// @import '../../scss/_mixins';
+@import '../../scss/_mixins';
 @import '../../scss/_variables';
-
 
 .Header {
   display: flex;
   flex-flow: row wrap;
   // padding: 10px;
 
+  transition: all 0.3s linear;
+
+  @include themed() {
+    background-color: themed('backgroundColor');
+    color: themed('textColor');
+    border-color: themed('borderColor');
+  }
+
   .header-top {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: .3em .3em 0 .3em; 
+    padding: 0.3em 0.3em 0 0.3em;
     border-bottom: 2px solid;
     padding: 10px;
 
@@ -25,7 +32,7 @@
         font-size: 1.3em;
         font-weight: bold;
       }
-      span:nth-of-type(2){
+      span:nth-of-type(2) {
         display: inline-flex;
         align-items: center;
       }
@@ -52,17 +59,28 @@
     border-bottom: 2px solid;
     border-color: inherit;
     font-size: 1.4em;
+    @include themed() {
+      // background-color: themed('borderColor');
+      // color: themed('textColor');
+      // border-color: themed('borderColor');
+    }
 
     // .menu-item {
     //   font-size: 1.4em;
     //   overflow: hidden;
     //   line-height: 52px;
     // }
-
   }
-  .hidden{
+  .hidden {
     transition: max-height $navTransTime linear;
     // overflow: hidden;
     max-height: 0;
+  }
+
+  .menu-icon-top,  .menu-icon-bottom {
+  // transition: background-color 0.3s linear;
+    @include themed() {
+      background-color: themed('borderColor');
+    }
   }
 }

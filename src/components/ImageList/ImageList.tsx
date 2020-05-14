@@ -1,6 +1,7 @@
 import React from 'react'
 import ImageListItemLanding from '../ImageListItemLanding/ImageListItemLanding'
 import ImageListItemProject from '../ImageListItemProject/ImageListItemProject'
+import './ImageList.scss'
 
 interface Project {
   name: string
@@ -12,7 +13,7 @@ interface ImageListProps {
   project?: Project
 }
 
-// Props determine what renders
+// Props determine what renders, for either LandingPage or ProjectPage. 
 const ImageList: React.FC<ImageListProps> = ({ projectNamesList, project }) => {
 
   const renderImageList = () => {
@@ -29,9 +30,6 @@ const ImageList: React.FC<ImageListProps> = ({ projectNamesList, project }) => {
     }
     // IF USING A PROJECT "OBJECT" (for one project get all its imgs)
     if (project) {
-
-
-
       return (
         <ul>
           {/* {console.log(project.url)} */}

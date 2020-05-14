@@ -1,11 +1,11 @@
 import React from 'react'
 
-import './PortfolioPage'
+import './PortfolioPage.scss'
 
 const PortfolioPage = () => {
   return (
     <div className="ContactPage">
-      <h1>Contact</h1>
+      
     </div>
   )
 }

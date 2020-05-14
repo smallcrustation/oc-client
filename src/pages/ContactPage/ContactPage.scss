@@ -1,0 +1,15 @@
+.ContactPage {
+  table {
+    margin: 1em;
+
+    td {
+      height: 2em;
+      vertical-align: top;
+    }
+
+    td:nth-child(odd){
+      // color: red;
+      width: 5em;
+    }
+  }
+}
