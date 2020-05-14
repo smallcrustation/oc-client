@@ -1,29 +1,18 @@
-@import '../../scss/_mixins'; 
+@import '../../scss/_mixins';
 
 .Footer {
-
   @include themed() {
     background-color: themed('backgroundColor');
     color: themed('textColor');
     border-color: themed('borderColor');
   }
-
   border-top: 2px solid black;
-  // display: flex;
-  // justify-content: space-between;
-  // width: 100%;
-  // padding: 0.3em 0 0.3em;
-  // border-bottom: 2px solid;
-  // margin-bottom: -50px;
-  padding: 0.3em 0.3em 0;
-
-  // position: fixed;
-  // bottom: 0;
+  // padding: 0.3em 0.3em 0;
   width: 100%;
   flex-shrink: 0;
-  // height: 2.5rem; 
-
   .logo {
+    padding: 0.3em 0.3em 0;
+
     // flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -31,24 +20,30 @@
     text-transform: uppercase;
     justify-content: center;
     :first-child {
+      padding: 0.3em 0.3em 0;
+
       font-size: 1em;
       font-weight: bold;
     }
     span:nth-of-type(2) {
+      padding: 0.3em 0.3em 0;
+
       display: inline-flex;
       align-items: center;
     }
   }
 
-  .footer-nav{
+  .footer-nav {
+    padding: 0.3em 0.3em 0;
+
     font-size: 1em;
     display: flex;
     justify-content: space-around;
 
-    .menu-item{
+    .menu-item {
+      padding: 0.3em 0.3em 0;
+
       line-height: 30px;
     }
   }
-
-
 }

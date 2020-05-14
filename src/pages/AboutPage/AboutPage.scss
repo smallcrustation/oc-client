@@ -1,28 +1,34 @@
-.AboutPage{
+@import '../../scss/_mixins';
+
+.AboutPage {
   @media screen and (min-width: 800px) {
     margin-top: 1em;
   }
   max-width: 1000px;
   margin: 0 auto;
 
-  .olden-days-img{
+  .olden-days-img {
     // margin: 0em 0;
     // object-position: 0 -40px;
     height: 225px;
     // max-width: 500px;
-    border-bottom: 2px solid black;
+    @include themed() {
+      border-bottom: 2px solid themed('textColor');
+    }
     // margin: 0 auto;
     @media screen and (min-width: 800px) {
       height: 500px;
       margin: 0 auto;
-      border-top: 2px solid black;
-      border-left: 2px solid black;
-      border-right: 2px solid black;
+      @include themed() {
+        border: 2px solid themed('textColor');
+        border: 2px solid themed('textColor');
+        border: 2px solid themed('textColor');
+      }
     }
   }
 
-  p{
-    margin: 0 .2em 1em .5em;
+  p {
+    margin: 0 0.2em 1em 0.5em;
     @media screen and (min-width: 800px) {
       padding: 0 10em 0 5em;
       max-width: 45em;
