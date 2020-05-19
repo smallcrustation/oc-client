@@ -8,6 +8,7 @@ import Footer from '../Footer/Footer'
 import AboutPage from '../../pages/AboutPage/AboutPage'
 import ProjectPage from '../../pages/ProjectPage/ProjectPage'
 import ContactPage from '../../pages/ContactPage/ContactPage'
+import PortfolioPage from '../../pages/PortfolioPage/PortfolioPage'
 
 function App() {
   const [theme, setTheme] = useState<string>('day')
@@ -33,6 +34,7 @@ function App() {
           <Route exact path={'/about'} component={AboutPage} />
           <Route exact path={'/project/:address'} component={ProjectPage}/>
           <Route exact path={'/contact'} component={ContactPage}/>
+          <Route exact path={'/portfolio'} component={PortfolioPage}/>
         </Switch>
 
         {/* <Footer/> */}

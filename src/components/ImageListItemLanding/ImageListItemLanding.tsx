@@ -70,6 +70,10 @@ const ImageListItemLanding: React.FC<ImageListItemLandingProps> = ({
   // check if there is already URL list in Context
   useEffect(
     () => {
+
+      const getProjects = async() => await imageApiService.getProjects()
+      console.log(getProjects())
+
       // async function in useEffect
       // check if there is already URL list in Context
       if (projectsContext.projectsList) {
@@ -103,6 +107,8 @@ const ImageListItemLanding: React.FC<ImageListItemLandingProps> = ({
 
   return (
     <div className="img-container">
+        {/* <ImgLoader /> */}
+
       {loading ? (
         <ImgLoader />
       ) : project.url ? (

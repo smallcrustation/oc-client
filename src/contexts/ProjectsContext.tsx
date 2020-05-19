@@ -20,11 +20,11 @@ const ProjectsContextProvider = ( {children}: ProviderProps ) => {
   const [projectsList, setProjectsList] = useState<Project[] | null>([])
 
   const addProject = (project: Project) => {
-    console.log('context addProject')
+    // console.log('context addProject')
     if (projectsList) {
       setProjectsList(projectsList => [...projectsList, project])
     }
-    console.log(project)
+    // console.log(project)
   }
 
   const value = {

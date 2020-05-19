@@ -1,0 +1,25 @@
+.PortfolioPage{
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (min-width: 800px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .img-container {
+    max-height: 180px;
+    @media screen and (min-height: 600px) {
+    max-height: none;
+    }
+    @media screen and (min-width: 800px) {
+      // margin: 0.5em 0em;
+      max-height: none;
+      width: 40vw;
+    }
+  }
+}

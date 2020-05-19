@@ -1,26 +1,40 @@
 @import '../../scss/_mixins';
 @import '../../scss/_variables';
 
+// $max-width: 1600px;
+$max-width: none;
+
 .Header {
   display: flex;
   flex-flow: row wrap;
-  // padding: 10px;
-
   transition: all 0.3s linear;
+  
+  // @media screen and (min-width: 800px) {
+  //   padding-bottom: 3em;
+  // }
 
   @include themed() {
     background-color: themed('backgroundColor');
     color: themed('textColor');
     border-color: themed('borderColor');
   }
+  justify-content: center;
+
+  .header-top, .menu-drop-down{
+  } 
 
   .header-top {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0.3em 0.3em 0 0.3em;
+    // padding: 0.3em 0.3em 0 0.3em;
     border-bottom: 2px solid;
     padding: 10px;
+
+    @media screen and (min-width: 800px) {
+      padding: 20px;
+      max-width: $max-width - 40px; // 20px padding
+    }
 
     .logo {
       display: flex;
@@ -50,6 +64,8 @@
   overflow: hidden;
 
   .menu-drop-down {
+    max-width: $max-width;
+
     transition: max-height $navTransTime linear;
     max-height: 100px;
     display: flex;
@@ -78,6 +94,7 @@
   }
 
   .menu-icon-top,  .menu-icon-bottom {
+    
   // transition: background-color 0.3s linear;
     @include themed() {
       background-color: themed('borderColor');
