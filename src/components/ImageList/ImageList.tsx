@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ImageListItemLanding from '../ImageListItemLanding/ImageListItemLanding'
 import ImageListItemProject from '../ImageListItemProject/ImageListItemProject'
 import './ImageList.scss'
+import { ProjectsContext } from '../../contexts/ProjectsContext'
 
 interface Project {
   name: string
@@ -9,49 +10,53 @@ interface Project {
 }
 
 interface ImageListProps {
-  projectNamesList?: string[]
+  //   projectNamesList?: string[]
   project?: Project
+  page: string
 }
 
-// Props determine what renders, for either LandingPage or ProjectPage. 
-const ImageList: React.FC<ImageListProps> = ({ projectNamesList, project }) => {
+// Props determine what renders, for either LandingPage or ProjectPage.
+const ImageList: React.FC<ImageListProps> = ({ page, project }) => {
+  const projectsContext = useContext(ProjectsContext)
 
   const renderImageList = () => {
-
-    // IF USING A LIST OF STRINGS TO GET PROJECTS (for all projects get one img)
-    if (projectNamesList) {
-      return (
-        <ul>
-          {projectNamesList.map((project, index) => (
-            <ImageListItemLanding projectName={project} key={index} />
-          ))}
-        </ul>
-      )
-    }
-    // IF USING A PROJECT "OBJECT" (for one project get all its imgs)
-    if (project) {
-      return (
-        <ul>
-          {/* {console.log(project.url)} */}
-          {project.url
-            ? project.url.map((imageUrl, index) => (
-                <ImageListItemProject imageUrl={imageUrl} key={index} />
-              ))
-            : 'Error...'}
-        </ul>
-      )
+    if (projectsContext.projectsList) {
+      // projectsContext.projectsList.map((project, index) => (
+      //   console.log(project, index)
+      // ))
+      if (page === 'portfolio') {
+        return (
+          <ul>
+            {projectsContext.projectsList.map((project, index) =>
+              project.url ? (
+                <ImageListItemLanding project={project} key={index} />
+              ) : (
+                ''
+              )
+            )}
+          </ul>
+        )
+      }
+      if (page === 'project') {
+        if (project && project.url) {
+          return (
+            <ul>
+              {project.url.map((projectUrl, index) =>
+                projectUrl ? (
+                  <ImageListItemProject imageUrl={projectUrl} key={index} />
+                ) : (
+                  ''
+                )
+              )}
+            </ul>
+          )
+        }
+      }
     }
   }
 
-  // console.log('RENDER ImageList')
-
   return (
     <div className="ImageList">
-      {/* <ul>
-        {projectNamesList.map((project, index) => (
-          <ImageListItem projectName={project} key={index} />
-        ))}
-      </ul> */}
       {renderImageList()}
     </div>
   )

@@ -27,9 +27,9 @@ const imageApiService = {
         `${config.REACT_APP_API_ENDPOINT}/images/projects`
       )
 
-      console.log(projects.json())
+      // console.log(projects.json())
 
-      return 'thing'
+      return projects
     } catch (e) {
       return e
     }

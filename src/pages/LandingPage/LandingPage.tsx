@@ -1,37 +1,18 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState, useEffect } from 'react'
-// import Img from 'react-image'
+import React from 'react'
 import './LandingPage.scss'
-// import { Link } from 'react-router-dom'
-// import ImgLoader from '../../components/ImgLoader/ImgLoader'
-// import imageApiService from '../../services/image-api-service'
 
 import ImageList from '../../components/ImageList/ImageList'
 
-// interface Project {
-//   name: string
-//   url: string | null
-// }
-
 const LandingPage = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [projectNames, setProjectNames] = useState(['boldLad', 'halsey104', 'castilla', 'halsey106', 'highFlyer', 'nativeDancer8124', 'nativeDancer8362', 'southePointe'])
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // const [projectNames, setProjectNames] = useState(['halsey106'])
 
-  // console.log('RENDER LandingPage')
-
-  if (projectNames) {
-    return (
-      <div className="LandingPage">
-        <section>
-          <ImageList projectNamesList={projectNames}/>
-        </section>
-      </div>
-    )
-  } else {
-    return <p>Error...</p>
-  }
+  return (
+    <div className="LandingPage">
+      <section>
+        <ImageList page="portfolio"/>
+      </section>
+    </div>
+  )
 }
 
 export default LandingPage

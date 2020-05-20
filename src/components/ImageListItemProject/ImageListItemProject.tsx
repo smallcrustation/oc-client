@@ -1,23 +1,7 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
 import ImgLoader from '../ImgLoader/ImgLoader'
-// import imageApiService from '../../services/image-api-service'
 
-// interface Project {
-//   name: string
-//   url: string | undefined
-// }
-
-// interface ImageListItemPropWithProjectName {
-//   projectName: string
-// }
-
-// interface ImageListItemPropWithProjectObject {
-//   project: Project
-
-// }
-
-// type ImageListItemProps = ImageListItemPropWithProjectName | ImageListItemPropWithProjectObject
 
 interface ImageListItemProjectProps {
   imageUrl: string
