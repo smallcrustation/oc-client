@@ -46,8 +46,9 @@ function App() {
 
   // set context for properties
   useEffect(() => {
-    try {
-      const getProjects = async () => {
+    // try {
+    const getProjects = async () => {
+      try {
         const res = await imageApiService.getProjects()
         let projectsList = await res.json()
         projectsList = projectsList.projectsList
@@ -63,17 +64,23 @@ function App() {
             projectsContext.addProject(project)
           }
         }
-        // console.log(projectsContext.projectsList)
-        // console.log('App')
+      } catch (e) {
+        // console.log('error')
+        console.log(e)
       }
-      getProjects()
 
-    } catch (e) {
-      console.error(e)
+      // console.log(projectsContext.projectsList)
+      // console.log('App')
     }
+    getProjects()
+
+    // } catch (e) {
+    // console.log('ERORRROR')
+    // console.error(e)
+    // }
 
     // console.log(projectsContext.projectsList)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
