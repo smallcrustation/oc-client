@@ -18,7 +18,6 @@ const ThemeToggle = ({ toggleTheme, theme }: Props) => {
       <div className={`sun-moon ${theme}`}>
         <Moon />
         <br />
-        {/* <br /> */}
         <Sun />
       </div>
     </div>
