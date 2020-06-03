@@ -50,7 +50,7 @@ $max-width: none;
       .logo-second {
         display: inline-flex;
         align-items: center;
-        color: rgb(212, 16, 22);
+        color: $logoColor;
       }
       div{
         span:nth-of-type(1){

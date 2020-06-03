@@ -1,4 +1,5 @@
 @import '../../scss/_mixins';
+@import '../../scss/_variables';
 
 .Footer {
   @include themed() {
@@ -27,7 +28,7 @@
     }
     span:nth-of-type(2) {
       padding: 0.3em 0.3em 0;
-
+      color: $logoColor;
       display: inline-flex;
       align-items: center;
     }
