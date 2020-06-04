@@ -5,7 +5,7 @@ const imageApiService = {
   // set update db side img urls
   async updateProjectsDbUrls(){
     try {
-      console.log(' FETCHING .... getProjectImageUrls()')
+      // console.log(' FETCHING .... getProjectImageUrls()')
 
       const imageUrls = await fetch(
         `${config.REACT_APP_API_ENDPOINT}/images/set-project-urls`
@@ -21,7 +21,7 @@ const imageApiService = {
 
   async getProjects(){
     try {
-      console.log(' FETCHING .... getProjects()')
+      // console.log(' FETCHING .... getProjects()')
 
       const projects = await fetch(
         `${config.REACT_APP_API_ENDPOINT}/images/projects`
@@ -39,21 +39,21 @@ const imageApiService = {
   // #### --------------- MAKE OBSOLETE --------------- ####
 
   // get image urls for project
-  async getProjectImageUrls(project: string) {
-    try {
-      console.log(' FETCHING .... getProjectImageUrls()')
+  // async getProjectImageUrls(project: string) {
+  //   try {
+  //     // console.log(' FETCHING .... getProjectImageUrls()')
 
-      const imageUrls = await fetch(
-        `${config.REACT_APP_API_ENDPOINT}/images/${project}`
-      )
+  //     const imageUrls = await fetch(
+  //       `${config.REACT_APP_API_ENDPOINT}/images/${project}`
+  //     )
 
-      // console.log(imageUrls.json())
+  //     // console.log(imageUrls.json())
 
-      return imageUrls
-    } catch (e) {
-      return e
-    }
-  }
+  //     return imageUrls
+  //   } catch (e) {
+  //     return e
+  //   }
+  // }
 
 }
 

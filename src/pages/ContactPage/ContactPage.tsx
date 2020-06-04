@@ -8,6 +8,7 @@ const ContactPage = () => {
       <h1 className="underline-h2">Contact</h1>
       <div className="contact-card">
         <table>
+        <tbody>
           <tr>
             <td>phone:</td>
             <td>954.816.4444</td>
@@ -22,6 +23,7 @@ const ContactPage = () => {
               3590 SW 30th Ave, <br /> Ft. Lauderdale, FL 33312
             </td>
           </tr>
+          </tbody>
         </table>
       </div>
     </div>
