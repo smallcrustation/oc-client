@@ -1,6 +1,10 @@
 @import '../../scss/_mixins';
 
 .ImageList {
+  // Hacky here, b/c of .img-container align-items: center, header gets partially covered with image
+  @media screen and (max-width: 320px) {
+    padding-top: 30px;
+  }
   display: flex;
 
   ul {
@@ -33,7 +37,7 @@
   .img-container {
     // overflow: hidden;
     line-height: 0;
-    margin: 0.1em 0em;
+    // margin: 0.1em 0em;
     display: flex; 
     // border: 1px solid black;
 
