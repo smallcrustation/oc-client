@@ -49,6 +49,9 @@ function App() {
     // try {
     const getProjects = async () => {
       try {
+        // const resTEST = await imageApiService.getProjects()
+        //   .then(res => res.text()).then(text => console.log(text))
+      
         const res = await imageApiService.getProjects()
         let projectsList = await res.json()
         projectsList = projectsList.projectsList
@@ -66,7 +69,7 @@ function App() {
         }
       } catch (e) {
         // console.log('error')
-        console.log(e)
+        console.error(e)
       }
 
       // console.log(projectsContext.projectsList)

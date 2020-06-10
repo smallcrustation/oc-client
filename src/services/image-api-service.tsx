@@ -1,9 +1,8 @@
 import config from '../config'
 
 const imageApiService = {
-
   // set update db side img urls
-  async updateProjectsDbUrls(){
+  async updateProjectsDbUrls() {
     try {
       // console.log(' FETCHING .... getProjectImageUrls()')
 
@@ -19,10 +18,11 @@ const imageApiService = {
     }
   },
 
-  async getProjects(){
+  async getProjects() {
     try {
       // console.log(' FETCHING .... getProjects()')
 
+      // console.log(config.REACT_APP_API_ENDPOINT)
       const projects = await fetch(
         `${config.REACT_APP_API_ENDPOINT}/images/projects`
       )
@@ -35,6 +35,15 @@ const imageApiService = {
     }
   },
 
+  // Not used anywhere right now, updates the images urls
+  async updateImageUrls() {
+    try {
+      const res = await `${config.REACT_APP_API_ENDPOINT}/api/images/set-project-urls`
+      return res
+    } catch (e) {
+      return e
+    }
+  },
 
   // #### --------------- MAKE OBSOLETE --------------- ####
 
@@ -54,7 +63,6 @@ const imageApiService = {
   //     return e
   //   }
   // }
-
 }
 
 export default imageApiService
