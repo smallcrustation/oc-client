@@ -3,6 +3,7 @@ import ImageListItemLanding from '../ImageListItemLanding/ImageListItemLanding'
 import ImageListItemProject from '../ImageListItemProject/ImageListItemProject'
 import './ImageList.scss'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
+import ImgLoader from '../ImgLoader/ImgLoader'
 
 interface Project {
   name: string
@@ -21,29 +22,16 @@ const ImageList: React.FC<ImageListProps> = ({ page, project }) => {
 
   const renderImageList = () => {
     if (projectsContext.projectsList) {
-      // projectsContext.projectsList.map((project, index) => (
-      //   console.log(project, index)
-      // ))
-      if (page === 'portfolio') {
-        return (
-          <ul>
-            {projectsContext.projectsList.map((project, index) =>
-              project.url ? (
-                <ImageListItemLanding project={project} key={index} />
-              ) : (
-                ''
-              )
-            )}
-          </ul>
-        )
-      }
-      if (page === 'project') {
-        if (project && project.url) {
+      if (projectsContext.projectsList.length>0) {
+        // projectsContext.projectsList.map((project, index) => (
+        //   console.log(project, index)
+        // ))
+        if (page === 'portfolio') {
           return (
             <ul>
-              {project.url.map((projectUrl, index) =>
-                projectUrl ? (
-                  <ImageListItemProject imageUrl={projectUrl} key={index} />
+              {projectsContext.projectsList.map((project, index) =>
+                project.url ? (
+                  <ImageListItemLanding project={project} key={index} />
                 ) : (
                   ''
                 )
@@ -51,15 +39,30 @@ const ImageList: React.FC<ImageListProps> = ({ page, project }) => {
             </ul>
           )
         }
+        if (page === 'project') {
+          if (project && project.url) {
+            return (
+              <ul>
+                {project.url.map((projectUrl, index) =>
+                  projectUrl ? (
+                    <ImageListItemProject imageUrl={projectUrl} key={index} />
+                  ) : (
+                    ''
+                  )
+                )}
+              </ul>
+            )
+          }
+        }
+
+      // LOADING
+      } else { 
+        return <ImgLoader/>
       }
     }
   }
 
-  return (
-    <div className="ImageList">
-      {renderImageList()}
-    </div>
-  )
+  return <div className="ImageList">{renderImageList()}</div>
 }
 
 export default ImageList
