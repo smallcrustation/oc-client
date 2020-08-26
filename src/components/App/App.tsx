@@ -11,6 +11,7 @@ import ContactPage from '../../pages/ContactPage/ContactPage'
 import PortfolioPage from '../../pages/PortfolioPage/PortfolioPage'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
 import imageApiService from '../../services/image-api-service'
+import SignUpPage from '../../pages/SignUpPage/SignUpPage'
 
 interface Project {
   name: string
@@ -99,6 +100,7 @@ function App() {
           <Route exact path={'/project/:address'} component={ProjectPage} />
           <Route exact path={'/contact'} component={ContactPage} />
           <Route exact path={'/portfolio'} component={PortfolioPage} />
+          <Route exact path={'/signup'} component={SignUpPage} />
         </Switch>
 
         {/* <Footer/> */}

@@ -48,6 +48,22 @@ img {
   object-fit: cover;
 }
 
+form{
+  text-align: center;
+  div{
+    margin: 10px 20px;
+  }
+  label{
+    margin: 10px;
+  }
+  input{
+    padding: .4em;
+  }
+  .signup-btn{
+    padding: .7em;
+  }
+}
+
 // .img-container {
 //   // padding: .5em .2em;
 //   margin: 0.5em 0;
