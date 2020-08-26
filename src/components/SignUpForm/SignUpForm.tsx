@@ -45,7 +45,7 @@ const SignUpForm = () => {
           <label htmlFor="email">Email</label>
           <input
             autoComplete="off"
-            type="text"
+            type="email"
             id="email"
             name="email"
             placeholder="email"
@@ -56,7 +56,7 @@ const SignUpForm = () => {
           <label htmlFor="password">Password</label>
           <input
             autoComplete="off"
-            type="text"
+            type="password"
             id="password"
             name="password"
             placeholder="password"
@@ -67,7 +67,7 @@ const SignUpForm = () => {
           <label htmlFor="passwordCheck">Re-enter Password</label>
           <input
             autoComplete="off"
-            type="text"
+            type="password"
             id="passwordCheck"
             name="passwordCheck"
             placeholder="password"
