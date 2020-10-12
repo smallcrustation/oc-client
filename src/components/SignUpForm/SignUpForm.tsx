@@ -4,7 +4,7 @@ import './SignUpForm.scss'
 
 const SignUpForm = () => {
   const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   return (
     <div className="SignUpForm">
