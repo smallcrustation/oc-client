@@ -26,11 +26,11 @@ const SignInForm = () => {
     try{
       // get resp from login api. if success set val's to ''. save auth token to window. run on successful login
       const user = await AuthApiService.login(loginCredentials)
-      console.log('HERE')
-      console.log(user.authToken)
+      // console.log('HERE')
+      // console.log(user.authToken)
       TokenService.saveAuthToken(user.authToken)
   //     this.context.setUser('logged in')
-      console.log('LOGIN SUCCESS')
+      // console.log('LOGIN SUCCESS')
       setLoading(false)
   //     this.props.onSuccessfulLogin()
   //   } catch (err) {
