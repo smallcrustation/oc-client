@@ -154,6 +154,10 @@ form{
   background-color: #8c96a0;
 }
 
+.error{
+  color: red;
+}
+
 @media screen and (min-width: 800px) {
   .menu-item:hover a::before {
     // opacity: 1;

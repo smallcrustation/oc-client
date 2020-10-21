@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { UserContext } from '../../contexts/UserContext'
-import AuthApiService from '../../services/auth-api-service'
-import TokenService from '../../services/token-service'
 
 type SignInCred = {
   username: string
   password: string
 }
 
-const SignInForm = () => {
+type SignInFormProps = {
+  onSuccessfulSignIn: Function
+}
+
+const SignInForm = ({onSuccessfulSignIn}: SignInFormProps) => {
   const userContext = useContext(UserContext)
 
   const { register, handleSubmit, errors } = useForm<SignInCred>()
@@ -19,35 +21,21 @@ const SignInForm = () => {
   const [loading, setLoading] = useState(false)
 
   const onSubmit = async (signInCred: SignInCred) => {
-    // console.log(signInCred)
     setLoading(true)
 
-    // const loginCredentials = {
-    //   username: signInCred.username,
-    //   password: signInCred.password
-    // }
     if (userContext.signIn) {
       try {
-        userContext.signIn(signInCred)
-        // get resp from login api. if success set val's to ''. save auth token to window. run on successful login
-        // const user = await AuthApiService.login(loginCredentials)
-
-        // TokenService.saveAuthToken(user.authToken)
-        // this.context.setUser('logged in')
-        // console.log('LOGIN SUCCESS')
+        await userContext.signIn(signInCred)
         setLoading(false)
-        //     this.props.onSuccessfulLogin()
-        //   } catch (err) {
-        //     this.setState({ error: err.error, loading: false })
-        //     // console.log('LOGIN ERROR')
-        //   }
+        await onSuccessfulSignIn()
       } catch (e) {
         setLoading(false)
-        console.error(e)
+        // console.error(e)
+        setError(e.error)
       }
     } else {
       setLoading(false)
-      console.error('CONTEXT ERROR')
+      console.error('CONTEXT ERROR userContext.signIn MISSING')
     }
   }
 
