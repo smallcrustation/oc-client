@@ -132,6 +132,28 @@ form{
   }
 }
 
+.btn{
+  border: 3px solid #000;
+  box-shadow: -3px 5px black;
+  margin: 20px;
+  background-color: #fff;
+  padding: 10px 15px;
+  font-size: 20px;
+  outline-color: #708090;
+  -webkit-transition: .3s;
+  transition: .3s;
+  @include themed() {
+    background-color: themed('backgroundColor');
+    color: themed('textColor');
+    // border-color: themed('black');
+  }
+}
+
+.btn:hover{
+  cursor: pointer;
+  background-color: #8c96a0;
+}
+
 @media screen and (min-width: 800px) {
   .menu-item:hover a::before {
     // opacity: 1;

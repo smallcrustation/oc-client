@@ -9,6 +9,9 @@ const SignInPage = () => {
   // const [error, setError] = useState('')
   // const [loading, setLoading] = useState(false)
   // const [error, setError] = useState(false)
+  // const onSuccessfulSignIn = () => {
+  //   this.props.history.push('/')
+  // }
 
   return (
     <div className="SignInPage">

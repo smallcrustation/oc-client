@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Nav from '../Nav/Nav'
 import './Header.scss'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import { Link } from 'react-router-dom'
 import useWindowDimensions from '../../services/get-window-dimensions'
+import TokenService from '../../services/token-service'
+import { UserContext } from '../../contexts/UserContext'
+import { error } from 'console'
 
 type Props = {
   toggleTheme: Function
@@ -11,12 +14,23 @@ type Props = {
 }
 
 const Header = ({ toggleTheme, theme }: Props) => {
+  const userContext = useContext(UserContext)
+
   const [displayMenu, setDisplayMenu] = useState(false)
 
   const { windowWidth } = useWindowDimensions()
 
   const toggleDisplayMenu = () => {
     setDisplayMenu(!displayMenu)
+  }
+
+  const onClickSignOut = () => {
+    // TokenService.clearAuthToken()
+    if(userContext.signOut){
+      userContext.signOut()
+    } else (
+      console.error('LOGOUT ERROR')
+    )
   }
 
   // If screen below 800px show hamburger menu
@@ -51,6 +65,7 @@ const Header = ({ toggleTheme, theme }: Props) => {
             <div className="menu-item txt">
               <Link to="/contact">Contact</Link>
             </div>
+            {TokenService.hasAuthToken()?<div onClick={onClickSignOut} className="btn">Sign Out</div>:''}
             <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
           </nav>
         </div>
