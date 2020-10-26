@@ -1,8 +1,17 @@
 import React, { createContext, useState } from 'react'
 
-interface Project {
+export interface Project {
+  // these come through oc-api via cloudinary
   name: string
   url: string[] | undefined
+  // these come straight from oc-api
+  prettyName?: string | null
+  beds?: string | null
+  baths?: string | null
+  sqft?: string | null
+  address?: string | null
+  architect?: string | null
+  yearBuilt?: string | null
 }
 
 type ContextProps = {
@@ -20,11 +29,10 @@ const ProjectsContextProvider = ( {children}: ProviderProps ) => {
   const [projectsList, setProjectsList] = useState<Project[] | null>([])
 
   const addProject = (project: Project) => {
-    // console.log('context addProject')
+    // console.log(project)
     if (projectsList) {
       setProjectsList(projectsList => [...projectsList, project])
     }
-    // console.log(project)
   }
 
   const value = {

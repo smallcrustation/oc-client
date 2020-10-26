@@ -13,11 +13,9 @@ import { ProjectsContext } from '../../contexts/ProjectsContext'
 import imageApiService from '../../services/image-api-service'
 import SignUpPage from '../../pages/SignUpPage/SignUpPage'
 import SignInPage from '../../pages/SignInPage/SignInPage'
-
-interface Project {
-  name: string
-  url: string[] | undefined
-}
+import PrivateRoute from '../utils/PrivateRoute'
+import TokenService from '../../services/token-service'
+import {Project} from '../../contexts/ProjectsContext'
 
 function App() {
   const [theme, setTheme] = useState<string>('day')
@@ -53,7 +51,7 @@ function App() {
       try {
         // const resTEST = await imageApiService.getProjects()
         //   .then(res => res.text()).then(text => console.log(text))
-      
+
         const res = await imageApiService.getProjects()
         let projectsList = await res.json()
         projectsList = projectsList.projectsList
@@ -63,6 +61,14 @@ function App() {
           let project: Project = {
             name: projectsList[i].name,
             url: orderUrls(projectsList[i].img_urls),
+            prettyName: projectsList[i].pretty_name,
+            beds: projectsList[i].beds,
+            baths: projectsList[i].baths,
+            address: projectsList[i].address,
+            architect: projectsList[i].architect,
+            sqft: projectsList[i].sqft,
+            yearBuilt: projectsList[i].year_built
+
           }
           // console.log(project)
           if (projectsContext.addProject) {
@@ -103,6 +109,12 @@ function App() {
           <Route exact path={'/portfolio'} component={PortfolioPage} />
           <Route exact path={'/signup'} component={SignUpPage} />
           <Route exact path={'/signin'} component={SignInPage} />
+          <PrivateRoute
+            isAuthenticated={TokenService.hasAuthToken()}
+            redirectPath="/signin"
+            component={AboutPage}
+            path="/AuthTest"
+          />
         </Switch>
 
         {/* <Footer/> */}
