@@ -10,6 +10,7 @@ import ImageList from '../../components/ImageList/ImageList'
 // import ImgLoader from '../../components/ImgLoader/ImgLoader'
 import './ProjectPage.scss'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
+import TokenService from '../../services/token-service'
 
 interface Project {
   name: string
@@ -36,6 +37,7 @@ const ProjectPage = () => {
 
   return (
     <div className="ProjectPage">
+      {TokenService.hasAuthToken()?'EDIT':''}
       <ImageList page={'project'} project={project}/>
     </div>
   )

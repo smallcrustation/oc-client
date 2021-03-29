@@ -32,6 +32,7 @@ function App() {
   }
 
   const orderUrls = (projectResUrls: Array<string>) => {
+
     const sortedResults = projectResUrls.sort((urlA, urlB) => {
       // console.log(urlA.split('/').slice(-1)[0].split('_', 1)[0], urlB)
 
@@ -70,11 +71,15 @@ function App() {
             yearBuilt: projectsList[i].year_built
 
           }
-          // console.log(project)
           if (projectsContext.addProject) {
             projectsContext.addProject(project)
           }
         }
+        
+        // ORDER PROJECTS HERE!!!
+        console.log('all done?')
+
+        
       } catch (e) {
         // console.log('error')
         console.error(e)
@@ -83,7 +88,9 @@ function App() {
       // console.log(projectsContext.projectsList)
       // console.log('App')
     }
-    getProjects()
+    getProjects() 
+    
+    
 
     // } catch (e) {
     // console.log('ERORRROR')
