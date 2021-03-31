@@ -42,7 +42,7 @@ const ContactPage = () => {
             </tr>
             <tr>
               <td>email:</td>
-              <td>lpmaze@gmail.com</td>
+              <td>Lpmaze@gmail.com</td>
             </tr>
           </tbody>
         </table>

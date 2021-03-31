@@ -53,6 +53,7 @@ function App() {
         //   .then(res => res.text()).then(text => console.log(text))
       
         const res = await imageApiService.getProjects()
+        // console.log(res)
         let projectsList = await res.json()
         projectsList = projectsList.projectsList
         // console.log(projectsList)
