@@ -12,7 +12,7 @@ const AboutPage = () => {
       />
       <h1 className="underline-h2">About</h1>
       <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Oberholtzer Construction was started more than 80 years ago in Ohio and has been building in South Florida since 2005. We build spec and custom, residential and commercial properties. We offer start to finish real estate services ranging from finding and closing on property to turnkey construction.
       </p>
     </div>
   )
