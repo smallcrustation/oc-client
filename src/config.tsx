@@ -1,11 +1,8 @@
 require('dotenv').config();
 
 export default {
-    // API_ENDPOINT: 'https://thinkful-whatdo.herokuapp.com/api',
-    // API_ENDPOINT: "http://localhost:8000/api",
-    // REACT_APP_API_ENDPOINT: "http://localhost:8000/api",
-    // TOKEN_KEY: "dev-client-auth-token",
-    REACT_APP_API_ENDPOINT:  // "https://oc-api-1.herokuapp.com/api"
+
+    REACT_APP_API_ENDPOINT:  
       process.env.REACT_APP_API_ENDPOINT ||
       'http://localhost:8000/api'
       ,

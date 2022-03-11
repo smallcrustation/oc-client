@@ -9,8 +9,11 @@ import AboutPage from '../../pages/AboutPage/AboutPage'
 import ProjectPage from '../../pages/ProjectPage/ProjectPage'
 import ContactPage from '../../pages/ContactPage/ContactPage'
 import PortfolioPage from '../../pages/PortfolioPage/PortfolioPage'
+import LoginPage from '../../pages/LoginPage/LoginPage'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
 import imageApiService from '../../services/image-api-service'
+import CreateUserPage from '../../pages/CreateUserPage/CreateUserPage'
+
 
 interface Project {
   name: string
@@ -100,6 +103,8 @@ function App() {
           <Route exact path={'/project/:address'} component={ProjectPage} />
           <Route exact path={'/contact'} component={ContactPage} />
           <Route exact path={'/portfolio'} component={PortfolioPage} />
+          <Route exact path={'/admin'} component={LoginPage} />
+          <Route exact path={'/createUser'} component={CreateUserPage} />
         </Switch>
 
         {/* <Footer/> */}
