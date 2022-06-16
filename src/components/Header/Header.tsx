@@ -5,6 +5,8 @@ import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import { Link } from 'react-router-dom'
 import useWindowDimensions from '../../services/get-window-dimensions'
 
+import TokenService from '../../services/token-service'
+
 type Props = {
   toggleTheme: Function
   theme: string
@@ -39,6 +41,11 @@ const Header = ({ toggleTheme, theme }: Props) => {
               {/* build | invest */}
             </Link>
           </div>
+
+          <div>
+          {TokenService.hasAuthToken() ? 'ADMIN' : ''}
+          </div>
+
           <nav>
             <div className="menu-item txt">
               <Link to="/about">About</Link>
