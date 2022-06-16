@@ -12,7 +12,7 @@ function CreateUserForm({onSuccessfulCreateUser}: Props) {
     e.preventDefault()
 
     const target = e.target as typeof e.target & {
-      secret: {value: string}
+      secret: {value: string} //This is just an ez way to only allow authorized ppl to make accounts, check the API env
       username: { value: string }
       pass1: { value: string }
       pass2: { value: string }
@@ -40,6 +40,7 @@ function CreateUserForm({onSuccessfulCreateUser}: Props) {
     try {
       // eslint-disable-next-line no-unused-vars
       const savedUser = await AuthApiService.createAccount(newUser)
+      console.log(savedUser)
       target.secret.value = ''
       target.username.value = ''
       target.pass1.value = ''
@@ -92,7 +93,7 @@ function CreateUserForm({onSuccessfulCreateUser}: Props) {
             required
           />
 
-          <input type="submit" value="Login" />
+          <input type="submit" value="Create" />
         </div>
       </form>
       
