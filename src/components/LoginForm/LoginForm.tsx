@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AuthApiService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 import './LoginForm.scss'
+
+// so the header LOGOUT button toggles on state change... Should put login in context so I can run it anywhere.
+import {AuthUserContext} from '../../contexts/AuthUserContext'
+
 
 interface LoginFormProps {
   onSuccessfulLogin: any //I should find the actual history.prop type
@@ -9,6 +13,7 @@ interface LoginFormProps {
 
 
 const LoginForm = (props: LoginFormProps) => {
+  const authUserContext = useContext(AuthUserContext)
 
   const [error, setError] = useState(0)
 
@@ -23,8 +28,8 @@ const LoginForm = (props: LoginFormProps) => {
       pass: { value: string }
     }
 
-    console.log(target.username.value)
-    console.log(target.pass.value)
+    // console.log(target.username.value)
+    // console.log(target.pass.value)
 
     const loginCredentials = {
       username: target.username.value,
@@ -37,6 +42,7 @@ const LoginForm = (props: LoginFormProps) => {
       // console.log(res.authToken)
       TokenService.saveAuthToken(user.authToken)
       // this.context.setUser('logged in')
+      authUserContext?.authenticateUser()
       // console.log('LOGIN SUCCESS')
       // this.setState({ error: null, loading: false })
       // this.props.onSuccessfulLogin()

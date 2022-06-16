@@ -5,12 +5,15 @@ import App from './components/App/App'
 import * as serviceWorker from './serviceWorker'
 import { BrowserRouter } from 'react-router-dom'
 import ProjectsContextProvider from './contexts/ProjectsContext'
+import AuthUserContextProvider from './contexts/AuthUserContext'
 
 ReactDOM.render(
   <BrowserRouter>
-    <ProjectsContextProvider>
-      <App />
-    </ProjectsContextProvider>
+    <AuthUserContextProvider>
+      <ProjectsContextProvider>
+        <App />
+      </ProjectsContextProvider>
+    </AuthUserContextProvider>
   </BrowserRouter>,
   document.getElementById('root')
 )
