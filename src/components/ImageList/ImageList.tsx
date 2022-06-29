@@ -28,7 +28,7 @@ const ImageList: React.FC<ImageListProps> = ({ page, project }) => {
         // ))
         if (page === 'portfolio') {
           return (
-            <ul>
+            <ul> 
               {projectsContext.projectsList.map((project, index) =>
                 project.url ? (
                   <ImageListItemLanding project={project} key={index} />
@@ -45,7 +45,7 @@ const ImageList: React.FC<ImageListProps> = ({ page, project }) => {
               <ul>
                 {project.url.map((projectUrl, index) =>
                   projectUrl ? (
-                    <ImageListItemProject imageUrl={projectUrl} key={index} />
+                    <ImageListItemProject imageUrl={projectUrl} key={index} keyProp={index}/>
                   ) : (
                     ''
                   )

@@ -1,0 +1,21 @@
+@import '../../scss/_mixins';
+
+
+.DataListItem{
+
+
+  h1 {
+    text-align: center;
+    // color: red;
+  }
+
+  .Data{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+
+
+
+}

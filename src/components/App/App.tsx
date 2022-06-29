@@ -14,10 +14,19 @@ import { ProjectsContext } from '../../contexts/ProjectsContext'
 import imageApiService from '../../services/image-api-service'
 import CreateUserPage from '../../pages/CreateUserPage/CreateUserPage'
 
-
 interface Project {
   name: string
   url: string[] | undefined
+  description: string[] | undefined
+  address: string[] | undefined
+  architect: string[] | undefined
+  pretty_name: string[] | undefined
+  bedrooms: string[] | undefined
+  bathrooms: string[] | undefined
+  square_footage: string[] | undefined
+  data_1: string[] | undefined
+  data_2: string[] | undefined
+  data_3: string[] | undefined
 }
 
 function App() {
@@ -54,7 +63,9 @@ function App() {
       try {
         // const resTEST = await imageApiService.getProjects()
         //   .then(res => res.text()).then(text => console.log(text))
-      
+
+        // ===== GET ALL PROJECT DATA FOR ALL PROJECT DATA, ok for so few projects ====
+        // would not do it like this with more time... would only request data when needed.
         const res = await imageApiService.getProjects()
         // console.log(res)
         let projectsList = await res.json()
@@ -65,6 +76,16 @@ function App() {
           let project: Project = {
             name: projectsList[i].name,
             url: orderUrls(projectsList[i].img_urls),
+            description: projectsList[i].description,
+            address: projectsList[i].address,
+            architect: projectsList[i].architect,
+            pretty_name: projectsList[i].pretty_name,
+            bedrooms: projectsList[i].bedrooms,
+            bathrooms: projectsList[i].bathrooms,
+            square_footage: projectsList[i].square_footage,
+            data_1: projectsList[i].data_1,
+            data_2: projectsList[i].data_2,
+            data_3: projectsList[i].data_3
           }
           // console.log(project)
           if (projectsContext.addProject) {

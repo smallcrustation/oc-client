@@ -23,6 +23,8 @@ const ProjectPage = () => {
   const {address} = useParams()
   const projectsContext = useContext(ProjectsContext)  
 
+  console.log(project)
+
   useEffect(() => {
 
     let tempProject = projectsContext.projectsList?.find(project => {
