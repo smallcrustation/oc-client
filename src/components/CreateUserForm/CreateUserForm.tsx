@@ -6,6 +6,7 @@ type Props = {
   onSuccessfulCreateUser: any
 }
 
+// ONLY USED FOR ADMINS SO NOT USER FRIENDLY
 function CreateUserForm({onSuccessfulCreateUser}: Props) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
@@ -40,7 +41,7 @@ function CreateUserForm({onSuccessfulCreateUser}: Props) {
     try {
       // eslint-disable-next-line no-unused-vars
       const savedUser = await AuthApiService.createAccount(newUser)
-      console.log(savedUser)
+      // console.log(savedUser)
       target.secret.value = ''
       target.username.value = ''
       target.pass1.value = ''

@@ -10,11 +10,12 @@ import ImageList from '../../components/ImageList/ImageList'
 // import ImgLoader from '../../components/ImgLoader/ImgLoader'
 import './ProjectPage.scss'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
+import {Project} from '../../contexts/ProjectsContext'
 
-interface Project {
-  name: string
-  url: string[] | undefined
-}
+// interface Project {
+//   name: string
+//   url: string[] | undefined
+// }
 
 const ProjectPage = () => {
   const [project, setProject] = useState<Project>()
@@ -23,7 +24,7 @@ const ProjectPage = () => {
   const {address} = useParams()
   const projectsContext = useContext(ProjectsContext)  
 
-  console.log(project)
+  // console.log(project)
 
   useEffect(() => {
 

@@ -1,4 +1,6 @@
 import config from '../config'
+import {Project} from '../contexts/ProjectsContext'
+
 
 const imageApiService = {
   // set update db side img urls
@@ -35,7 +37,22 @@ const imageApiService = {
     }
   },
 
+  async updateProjectInfo(updatedProjectData: Project){
+    const res = await fetch(`${config.REACT_APP_API_ENDPOINT}/update-project-info/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedProjectData)
+    })
+    if(!res.ok){
+      return res.json().then(e => Promise.reject(e))
+    }
+    return res.json()
+  },
+
   // Not used anywhere right now, updates the images urls
+  // now that I have log In I CAN easily add button
   async updateImageUrls() {
     try {
       const res = await `${config.REACT_APP_API_ENDPOINT}/api/images/set-project-urls`

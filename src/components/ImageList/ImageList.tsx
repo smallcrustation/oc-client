@@ -4,11 +4,13 @@ import ImageListItemProject from '../ImageListItemProject/ImageListItemProject'
 import './ImageList.scss'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
 import ImgLoader from '../ImgLoader/ImgLoader'
+import {Project} from '../../contexts/ProjectsContext'
 
-interface Project {
-  name: string
-  url: string[] | undefined
-}
+
+// interface Project {
+//   name: string
+//   url: string[] | undefined
+// }
 
 interface ImageListProps {
   //   projectNamesList?: string[]
@@ -45,7 +47,7 @@ const ImageList: React.FC<ImageListProps> = ({ page, project }) => {
               <ul>
                 {project.url.map((projectUrl, index) =>
                   projectUrl ? (
-                    <ImageListItemProject imageUrl={projectUrl} key={index} keyProp={index}/>
+                    <ImageListItemProject imageUrl={projectUrl} key={index} keyProp={index} project={project} />
                   ) : (
                     ''
                   )
