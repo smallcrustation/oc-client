@@ -20,7 +20,7 @@ const LoginForm = (props: LoginFormProps) => {
   const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
 
     e.preventDefault()
-    console.log("SUBMIT'D")
+    // console.log("SUBMIT'D")
 
     // to satisfy TypeScript types and get data from form
     const target = e.target as typeof e.target & {
@@ -47,8 +47,8 @@ const LoginForm = (props: LoginFormProps) => {
       // this.setState({ error: null, loading: false })
       // this.props.onSuccessfulLogin()
     } catch (err) {
-      console.log(err)
-      setError(err.error)
+      // console.log(err)
+      // setError(err.error)
     }
   }
 

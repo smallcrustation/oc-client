@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import ImgLoader from '../ImgLoader/ImgLoader'
 
+// this interface could be imported from context 
 interface Project {
   name: string
-  url: string[] | undefined
+  url?: string[] | undefined
 }
 
 interface ImageListItemLandingProps {

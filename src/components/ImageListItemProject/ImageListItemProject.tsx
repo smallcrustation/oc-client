@@ -3,18 +3,18 @@ import React, { useContext } from 'react'
 import ImgLoader from '../ImgLoader/ImgLoader'
 import './ImageListItemProject.scss'
 import { AuthUserContext } from '../../contexts/AuthUserContext'
-import { Project } from '../../contexts/ProjectsContext'
+// import { Project } from '../../contexts/ProjectsContext'
 import imageApiService from '../../services/image-api-service'
 
-// interface Project {
-//   name: string
-//   url: string[] | undefined
-// }
+interface UpdatedProjectData {
+  name: string
+  [key: string]: any
+}
 
 interface ImageListItemProjectProps {
   imageUrl: string
   keyProp: number
-  project: Project
+  project: any
 }
 
 const ImageListItemProject: React.FC<ImageListItemProjectProps> = ({
@@ -25,9 +25,9 @@ const ImageListItemProject: React.FC<ImageListItemProjectProps> = ({
   // const [loading, setloading] = useState(true)
   const authUserContext = useContext(AuthUserContext)
 
-  // console.log(authUserContext?.auth)
   const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault()
+   
 
     const target = e.target as typeof e.target & {
       address: { value: string | undefined }
@@ -43,25 +43,28 @@ const ImageListItemProject: React.FC<ImageListItemProjectProps> = ({
 
     // NEED TO CHECK IF UPDATED PROJECT DATA IS OK TO PUSH TO SERVICE?
     const tempUpdatedProjectData = {
-      address: target.address,
-      architect: target.architect,
-      prettyName: target.prettyName,
-      bedrooms: target.bedrooms,
-      bathrooms: target.bathrooms,
-      squareFootage: target.squareFootage,
-      data1: target.data1,
-      data2: target.data2,
-      data3: target.data3,
+      name: project.name,
+      address: target.address?.value,
+      architect: target.architect?.value,
+      prettyName: target.prettyName?.value,
+      bedrooms: target.bedrooms?.value,
+      bathrooms: target.bathrooms?.value,
+      squareFootage: target.squareFootage?.value,
+      data1: target.data1?.value,
+      data2: target.data2?.value,
+      data3: target.data3?.value,
     }
 
-    let updatedProjectData = {  }
+    const updatedProjectData: UpdatedProjectData = {
+      name: tempUpdatedProjectData.name,
+      address: tempUpdatedProjectData.address
+    }
 
     for (const [key, value] of Object.entries(tempUpdatedProjectData)) {
-      if (value !== undefined){
-        updatedProjectData 
-      } 
-      else {
-        return
+      if (value !== undefined || null || '') {
+        updatedProjectData[key] = value
+      } else {
+        updatedProjectData[key] = ''
       }
     }
 
@@ -70,7 +73,7 @@ const ImageListItemProject: React.FC<ImageListItemProjectProps> = ({
       const updatedProject = await imageApiService.updateProjectInfo(
         updatedProjectData
       )
-      // console.log(savedUser) = ''
+
       // target.address.value = ''
       // target.architect.value = ''
       // target.prettyName.value = ''
@@ -81,14 +84,23 @@ const ImageListItemProject: React.FC<ImageListItemProjectProps> = ({
       // target.data2.value = ''
       // target.data3.value = ''
 
-      // reload page?
-      // onSuccessfulCreateUser()
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       // this.setState({ error: err.error, loading: false })
     }
   }
 
+  // For jsx ternary's, if there is data display if not don't
+  const isThereData = (data: any) => {
+    if (!data){
+      return false
+    }
+    else{
+      return true
+    }
+  }
+
+  // This should all be broken down and automated for added data
   const renderListItem = () => {
     // Any ListItem that is not the first [0] returns this, first LI shows property data rest are just images
     if (keyProp !== 0) {
@@ -101,35 +113,94 @@ const ImageListItemProject: React.FC<ImageListItemProjectProps> = ({
 
     // USER IS LOG'D IN (CAN EDIT & SUBMIT)
     if (authUserContext?.auth) {
+    // if (true) {
       return (
         <div className="DataListItem">
           <li>
             <img src={imageUrl} alt="A Beautiful House" />
           </li>
           <section>
-            <h1>NAME ==LOGD IN===</h1>
-            <div className="Data">
-              <p>DATA 1</p>
-              <p>DATA 2</p>
-              <p>DATA 3</p>
-              <p>DATA 4</p>
-            </div>
+            <form onSubmit={handleSubmit}>
+              <h1>
+                <label htmlFor="prettyName">prettyName</label>
+
+                <input
+                  defaultValue={project.pretty_name || ''}
+                  type="text"
+                  id="prettyName"
+                  name="prettyName"
+                  className="InputH1"
+                  // maxLength="25"
+                  // required
+                />
+              </h1>
+
+              <div className="Data">
+                <div>
+                  <label htmlFor="address">Address</label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    defaultValue={project.address || ''}
+                    // maxLength="25"
+                    // required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="bedrooms">bedrooms</label>
+                  <input
+                    type="text"
+                    id="bedrooms"
+                    name="bedrooms"
+                    defaultValue={project.bedrooms || ''}
+                    // maxLength="25"
+                    // required
+                  />
+                  <label htmlFor="bathrooms">bathrooms</label>
+                  <input
+                    type="text"
+                    id="bathrooms"
+                    name="bathrooms"
+                    defaultValue={project.bathrooms || ''}
+                    // maxLength="25"
+                    // required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="squareFootage">squareFootage</label>
+                  <input
+                    type="text"
+                    id="squareFootage"
+                    name="squareFootage"
+                    defaultValue={project.squareFootage || ''}
+                    // maxLength="25"
+                    // required
+                  />
+                </div>
+                <input type="submit" value="Submit" />
+              </div>
+            </form>
           </section>
         </div>
       )
     } else {
+
       return (
         <div className="DataListItem">
+          <h1>{project.pretty_name}</h1>
           <li>
             <img src={imageUrl} alt="A Beautiful House" />
           </li>
           <section>
-            <h1>{project.name}</h1>
+            
+            {/* <h1>{project.pretty_name}</h1> */}
+            
             <div className="Data">
-              <p>DATA 1</p>
-              <p>DATA 2</p>
-              <p>DATA 3</p>
-              <p>DATA 4</p>
+              {(isThereData(project.square_footage)) ? <div><h3>SqFt</h3><p>{project.square_footage}</p></div> : ''}
+              {(isThereData(project.address)) ? <div><h3>Address</h3><p>{project.address}</p></div> : ''}
+              {(isThereData(project.bedrooms)) ? <div><h3>Beds/Baths</h3><p>{project.bedrooms}/{project.bathrooms}</p></div> : ''}
+              {(isThereData(project.data_1)) ? <p>{project.data_1}</p> : ''}
             </div>
           </section>
         </div>

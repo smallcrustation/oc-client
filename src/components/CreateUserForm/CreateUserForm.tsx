@@ -29,7 +29,7 @@ function CreateUserForm({onSuccessfulCreateUser}: Props) {
     if (target.pass1.value !== target.pass2.value) {
       // remove return when more validation added
       // return this.setState({ error: 'Passwords must match!' })
-      console.log('passwords did not match')
+      // console.log('passwords did not match')
       return
     }
 
@@ -49,7 +49,7 @@ function CreateUserForm({onSuccessfulCreateUser}: Props) {
       // this.setState({loading: false })
       onSuccessfulCreateUser()
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       // this.setState({ error: err.error, loading: false })
     }
   }
@@ -93,9 +93,9 @@ function CreateUserForm({onSuccessfulCreateUser}: Props) {
             // maxLength="25"
             required
           />
-
+</div>
           <input type="submit" value="Create" />
-        </div>
+        
       </form>
       
       </div>

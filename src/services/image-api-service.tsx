@@ -38,7 +38,7 @@ const imageApiService = {
   },
 
   async updateProjectInfo(updatedProjectData: Project){
-    const res = await fetch(`${config.REACT_APP_API_ENDPOINT}/update-project-info/`, {
+    const res = await fetch(`${config.REACT_APP_API_ENDPOINT}/images/update-project-info/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

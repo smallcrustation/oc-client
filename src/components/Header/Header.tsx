@@ -25,7 +25,7 @@ const Header = ({ toggleTheme, theme }: Props) => {
   }
 
   const logOut = () => {
-    console.log('logout')
+    // console.log('logout')
     authUserContext?.logOut()
   }
 

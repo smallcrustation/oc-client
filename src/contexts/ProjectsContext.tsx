@@ -2,17 +2,17 @@ import React, { createContext, useState } from 'react'
 
 export interface Project {
   name: string
-  url: string[] | undefined //img_urls TEXT[], --- DB names --
-  description: string | undefined // description  TEXT
-  address: string | undefined // address TEXT,
-  architect: string | undefined // architect TEXT
-  prettyName: string | undefined
-  bedrooms: string | undefined
-  bathrooms: string | undefined
-  squareFootage: string | undefined
-  data1: string | undefined
-  data2: string | undefined
-  data3: string | undefined
+  url?: string[] | undefined //img_urls TEXT[], --- DB names --
+  description?: string | undefined // description  TEXT
+  address?: string | undefined // address TEXT,
+  architect?: string | undefined // architect TEXT
+  prettyName?: string | undefined
+  bedrooms?: string | undefined
+  bathrooms?: string | undefined
+  squareFootage?: string | undefined
+  data1?: string | undefined
+  data2?: string | undefined
+  data3?: string | undefined
 }
 
 type ContextProps = {
