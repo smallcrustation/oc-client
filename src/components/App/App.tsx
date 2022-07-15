@@ -68,6 +68,7 @@ function App() {
         // would not do it like this with more time... would only request data when needed.
         const res = await imageApiService.getProjects()
         // console.log(res)
+        // @ts-ignore
         let projectsList = await res.json()
         projectsList = projectsList.projectsList
         // console.log(projectsList)
