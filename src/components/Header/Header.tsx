@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Nav from '../Nav/Nav'
 import './Header.scss'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import { Link } from 'react-router-dom'
 import useWindowDimensions from '../../services/get-window-dimensions'
+
+// so the header LOGOUT button toggles on state change...
+import {AuthUserContext} from '../../contexts/AuthUserContext'
 
 type Props = {
   toggleTheme: Function
@@ -11,12 +14,19 @@ type Props = {
 }
 
 const Header = ({ toggleTheme, theme }: Props) => {
-  const [displayMenu, setDisplayMenu] = useState(false)
+  const authUserContext = useContext(AuthUserContext)
+
+  const [displayMenu, setDisplayMenu] = useState(false)  
 
   const { windowWidth } = useWindowDimensions()
 
   const toggleDisplayMenu = () => {
     setDisplayMenu(!displayMenu)
+  }
+
+  const logOut = () => {
+    // console.log('logout')
+    authUserContext?.logOut()
   }
 
   // If screen below 800px show hamburger menu
@@ -39,6 +49,11 @@ const Header = ({ toggleTheme, theme }: Props) => {
               {/* build | invest */}
             </Link>
           </div>
+
+          <div>
+          {authUserContext?.auth ? <button onClick={logOut}>Logout</button> : ''}
+          </div>
+
           <nav>
             <div className="menu-item txt">
               <Link to="/about">About</Link>

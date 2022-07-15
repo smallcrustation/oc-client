@@ -1,0 +1,49 @@
+@import '../../scss/_mixins';
+
+
+.DataListItem{
+  h1{
+    // padding-left: 50%;
+    text-align: center;
+
+  }
+
+  .InputH1 {
+    text-align: center;
+  }
+
+  .Data{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    div{
+      text-align: center;
+    }
+    p{
+      text-align: center;
+    }
+  }
+
+  input {
+    margin: 20px;
+    padding: 15px;
+    // font-size: large;
+  }
+
+  @media screen and (min-width: 800px) {
+
+    h1{
+      padding-bottom: 20px;
+    }
+
+    .Data{
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    }
+  }
+
+
+}
