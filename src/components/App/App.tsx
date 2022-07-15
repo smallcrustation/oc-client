@@ -61,6 +61,7 @@ function App() {
     // try {
     const getProjects = async () => {
       try {
+        // console.log(process.env)
         // const resTEST = await imageApiService.getProjects()
         //   .then(res => res.text()).then(text => console.log(text))
 
@@ -68,7 +69,7 @@ function App() {
         // would not do it like this with more time... would only request data when needed.
         const res = await imageApiService.getProjects()
         // console.log(res)
-        // @ts-ignore
+      
         let projectsList = await res.json()
         projectsList = projectsList.projectsList
         // console.log(projectsList)
