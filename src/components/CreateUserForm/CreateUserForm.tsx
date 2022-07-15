@@ -34,6 +34,7 @@ function CreateUserForm({onSuccessfulCreateUser}: Props) {
     }
 
     const newUser = {
+      secret: target.secret.value,
       username: newUserCredentials.username,
       password: newUserCredentials.password
     }

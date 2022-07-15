@@ -24,7 +24,7 @@ const imageApiService = {
     try {
       // console.log(' FETCHING .... getProjects()')
 
-      // console.log(config.REACT_APP_API_ENDPOINT)
+      console.log(config.REACT_APP_API_ENDPOINT)
       const projects = await fetch(
         `${config.REACT_APP_API_ENDPOINT}/images/projects`
       )
