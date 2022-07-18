@@ -5,7 +5,6 @@
   h1{
     // padding-left: 50%;
     text-align: center;
-
   }
 
   .InputH1 {
@@ -17,10 +16,14 @@
     flex-wrap: wrap;
     flex-direction: column;
 
+
     div{
       text-align: center;
     }
     p{
+      
+      line-height: normal;
+      word-wrap: break-word;
       text-align: center;
     }
   }
