@@ -21,12 +21,12 @@ const ContactPage = () => {
               <td>email:</td>
               <td>jody@oberholtzerUS.com</td>
             </tr>
-            <tr>
+            {/* <tr>
               <td>address:</td>
               <td>
                 3590 SW 30th Ave, <br /> Ft. Lauderdale, FL 33312
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
         <br/>
@@ -43,6 +43,19 @@ const ContactPage = () => {
             <tr>
               <td>email:</td>
               <td>cody@oberholtzerUS.com</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <tbody>
+            {/* <tr> */}
+              <th><br /> Address <br /> <br /> </th>
+            {/* </tr> */}
+            {/* <tr><td></td></tr> */}
+            <tr>
+              {/* <td> */}
+                3590 SW 30th Ave, <br />  Ft. Lauderdale, FL 33312
+              {/* </td> */}
             </tr>
           </tbody>
         </table>
