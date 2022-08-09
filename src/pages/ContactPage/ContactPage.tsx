@@ -19,7 +19,7 @@ const ContactPage = () => {
             </tr>
             <tr>
               <td>email:</td>
-              <td>jody1052@gmail.com</td>
+              <td>jody@oberholtzerUS.com</td>
             </tr>
             <tr>
               <td>address:</td>
@@ -42,7 +42,7 @@ const ContactPage = () => {
             </tr>
             <tr>
               <td>email:</td>
-              <td>Lpmaze@gmail.com</td>
+              <td>cody@oberholtzerUS.com</td>
             </tr>
           </tbody>
         </table>
