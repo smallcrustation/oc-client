@@ -1,6 +1,9 @@
 .LandingPage {
+
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
+  // align-items: center;
+  
 
   @media screen and (min-width: 800px) {
     padding-top: 30px;
@@ -9,6 +12,20 @@
 
   section {
     width: 100%;
+    // center on page
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    @media screen and (min-width: 800px) {
+      // margin: 0.5em 0em;
+      // max-width: 90vw;
+      // min-height: 350px;
+      margin: auto;
+    }
+    
   }
 
   .img-container {

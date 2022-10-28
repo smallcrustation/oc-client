@@ -34,7 +34,6 @@ const ProjectsContextProvider = ( {children}: ProviderProps ) => {
     if (projectsList) {
       setProjectsList(projectsList => [...projectsList, project])
     }
-    // console.log(project)
   }
 
   const value = {

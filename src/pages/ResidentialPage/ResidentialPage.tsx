@@ -9,7 +9,7 @@ const ResidentialPage = () => {
   return (
     <div className="ResidentialPage">
       <section>
-        <ImageList page="portfolio"/>
+        <ImageList page="ResidentialPage"/>
       </section>
     </div>
   )

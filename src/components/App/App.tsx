@@ -13,6 +13,8 @@ import LoginPage from '../../pages/LoginPage/LoginPage'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
 import imageApiService from '../../services/image-api-service'
 import CreateUserPage from '../../pages/CreateUserPage/CreateUserPage'
+import ResidentialPage from '../../pages/ResidentialPage/ResidentialPage'
+import CommercialPage from '../../pages/CommercialPage/CommercialPage'
 
 interface Project {
   name: string
@@ -24,9 +26,9 @@ interface Project {
   bedrooms: string[] | undefined
   bathrooms: string[] | undefined
   square_footage: string[] | undefined
-  data_1: string[] | undefined
-  data_2: string[] | undefined
-  data_3: string[] | undefined
+  data1: string[] | undefined
+  data2: string[] | undefined
+  data3: string[] | undefined
 }
 
 function App() {
@@ -85,9 +87,9 @@ function App() {
             bedrooms: projectsList[i].bedrooms,
             bathrooms: projectsList[i].bathrooms,
             square_footage: projectsList[i].square_footage,
-            data_1: projectsList[i].data_1,
-            data_2: projectsList[i].data_2,
-            data_3: projectsList[i].data_3
+            data1: projectsList[i].data_1,
+            data2: projectsList[i].data_2,
+            data3: projectsList[i].data_3
           }
           // console.log(project)
           if (projectsContext.addProject) {
@@ -126,6 +128,8 @@ function App() {
           <Route exact path={'/project/:address'} component={ProjectPage} />
           <Route exact path={'/contact'} component={ContactPage} />
           <Route exact path={'/portfolio'} component={PortfolioPage} />
+          <Route exact path={'/homes'} component={ResidentialPage} />
+          <Route exact path={'/commercial'} component={CommercialPage} />
           <Route exact path={'/admin'} component={LoginPage} />
           <Route exact path={'/createUser'} component={CreateUserPage} />
         </Switch>
