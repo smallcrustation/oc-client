@@ -21,7 +21,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.3",
     "typescript": "^3.7.5",
-    "vercel": "^27.1.4"
+    "vercel": "^28.15.3"
   },
   "scripts": {
     "start": "react-scripts start",
